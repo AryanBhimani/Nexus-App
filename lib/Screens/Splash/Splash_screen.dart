@@ -13,12 +13,14 @@ class SplashScreen extends StatelessWidget {
       if (user != null) {
         // Navigate to Home if user is logged in
         Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
       } else {
         // Navigate to Login if user is not logged in
         Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(builder: (context) => const OnboardingPage()),
         );
@@ -92,8 +94,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
     if (isOnboardingCompleted) {
       // Navigate to the login page if onboarding is completed
       Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => const HomePage()),
       );
     }
   }
@@ -206,7 +209,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               _setOnboardingCompleted();
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             }
           });
