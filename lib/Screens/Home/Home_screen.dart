@@ -1,4 +1,60 @@
-// ignore: file_names
+// // ignore: file_names
+// import 'package:flutter/material.dart';
+
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Home Page'),
+//         centerTitle: true,
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             const Icon(
+//               Icons.home,
+//               size: 100.0,
+//               color: Colors.blue,
+//             ),
+//             const SizedBox(height: 20),
+//             const Text(
+//               'Welcome to Flutter!',
+//               style: TextStyle(
+//                 fontSize: 24,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             const SizedBox(height: 10),
+//             Text(
+//               'This is your home page.',
+//               style: TextStyle(
+//                 fontSize: 16,
+//                 color: Colors.grey[700],
+//               ),
+//             ),
+//             const SizedBox(height: 30),
+//             ElevatedButton(
+//               onPressed: () {
+//                 ScaffoldMessenger.of(context).showSnackBar(
+//                   const SnackBar(content: Text('Hello from Home Page!')),
+//                 );
+//               },
+//               child: const Text('Click Me'),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,46 +64,110 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
-        centerTitle: true,
+        title: const Text('Chats'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Add search functionality
+            },
+          ),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.home,
-              size: 100.0,
-              color: Colors.blue,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Welcome to Flutter!',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              'This is your home page.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[700],
-              ),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Hello from Home Page!')),
-                );
-              },
-              child: const Text('Click Me'),
-            ),
-          ],
+      body: const ChatList(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add functionality to create a new chat
+        },
+        child: const Icon(Icons.chat),
+      ),
+    );
+  }
+}
+
+class ChatList extends StatelessWidget {
+  const ChatList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Map<String, String>> chats = [
+      {
+        'name': 'John Doe',
+        'message': 'Hey, how\'s it going?',
+        'time': '10:45 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Jane Smith',
+        'message': 'Can you send the files?',
+        'time': '9:30 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Mike Lee',
+        'message': 'Let\'s catch up soon!',
+        'time': 'Yesterday',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+    ];
+
+    return ListView.builder(
+      itemCount: chats.length,
+      itemBuilder: (context, index) {
+        final chat = chats[index];
+        return ChatListItem(
+          name: chat['name']!,
+          message: chat['message']!,
+          time: chat['time']!,
+          profilePic: chat['profilePic']!,
+        );
+      },
+    );
+  }
+}
+
+class ChatListItem extends StatelessWidget {
+  final String name;
+  final String message;
+  final String time;
+  final String profilePic;
+
+  const ChatListItem({
+    required this.name,
+    required this.message,
+    required this.time,
+    required this.profilePic,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: NetworkImage(profilePic),
+        radius: 25,
+      ),
+      title: Text(
+        name,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
         ),
       ),
+      subtitle: Text(
+        message,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: Text(
+        time,
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+        ),
+      ),
+      onTap: () {
+        // Navigate to the chat screen
+      },
     );
   }
 }
