@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/aryan.dart';
+import 'package:nexusapp/Screens/Login%20and%20Sign%20in/Auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatelessWidget {
