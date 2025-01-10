@@ -2,6 +2,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +16,10 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black,),
+          icon: const Icon(Icons.arrow_back_ios, size: 20, color: Colors.black,),
         ),
       ),
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Column(
@@ -29,33 +31,33 @@ class LoginPage extends StatelessWidget {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      FadeInUp(duration: const Duration(milliseconds: 1000), child: Text("Login", style: TextStyle(
+                      FadeInUp(duration: const Duration(milliseconds: 1000), child: const Text("Login", style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold
                       ),)),
-                      SizedBox(height: 20,),
-                      FadeInUp(duration: Duration(milliseconds: 1200), child: Text("Login to your account", style: TextStyle(
+                      const SizedBox(height: 20,),
+                      FadeInUp(duration: const Duration(milliseconds: 1200), child: Text("Login to your account", style: TextStyle(
                         fontSize: 15,
                         color: Colors.grey[700]
                       ),)),
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Column(
                       children: <Widget>[
-                        FadeInUp(duration: Duration(milliseconds: 1200), child: makeInput(label: "Email")),
-                        FadeInUp(duration: Duration(milliseconds: 1300), child: makeInput(label: "Password", obscureText: true)),
+                        FadeInUp(duration: const Duration(milliseconds: 1200), child: makeInput(label: "Email")),
+                        FadeInUp(duration: const Duration(milliseconds: 1300), child: makeInput(label: "Password", obscureText: true)),
                       ],
                     ),
                   ),
-                  FadeInUp(duration: Duration(milliseconds: 1400), child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
+                  FadeInUp(duration: const Duration(milliseconds: 1400), child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Container(
-                      padding: EdgeInsets.only(top: 3, left: 3),
+                      padding: const EdgeInsets.only(top: 3, left: 3),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        border: Border(
+                        border: const Border(
                           bottom: BorderSide(color: Colors.black),
                           top: BorderSide(color: Colors.black),
                           left: BorderSide(color: Colors.black),
@@ -71,14 +73,14 @@ class LoginPage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)
                         ),
-                        child: Text("Login", style: TextStyle(
+                        child: const Text("Login", style: TextStyle(
                           fontWeight: FontWeight.w600, 
                           fontSize: 18
                         ),),
                       ),
                     ),
                   )),
-                  FadeInUp(duration: Duration(milliseconds: 1500), child: Row(
+                  FadeInUp(duration: const Duration(milliseconds: 1500), child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text("Don't have an account?"),
@@ -90,9 +92,9 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            FadeInUp(duration: Duration(milliseconds: 1200), child: Container(
+            FadeInUp(duration: const Duration(milliseconds: 1200), child: Container(
               height: MediaQuery.of(context).size.height / 3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/background.png'),
                   fit: BoxFit.cover
@@ -109,16 +111,16 @@ class LoginPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(label, style: TextStyle(
+        Text(label, style: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w400,
           color: Colors.black87
         ),),
-        SizedBox(height: 5,),
+        const SizedBox(height: 5,),
         TextField(
           obscureText: obscureText,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade400)
             ),
@@ -127,7 +129,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 30,),
+        const SizedBox(height: 30,),
       ],
     );
   }
