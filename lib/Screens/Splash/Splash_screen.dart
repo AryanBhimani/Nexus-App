@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
+import 'package:nexusapp/Screens/Login%20and%20Sign%20in/aryan.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +14,12 @@ class SplashScreen extends StatelessWidget {
       if (user != null) {
         // Navigate to Home if user is logged in
         Navigator.pushReplacement(
-          // ignore: use_build_context_synchronously
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
       } else {
         // Navigate to Login if user is not logged in
         Navigator.pushReplacement(
-          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(builder: (context) => const OnboardingPage()),
         );
@@ -51,19 +50,19 @@ class OnboardingInfo {
 class OnboardingData {
   List<OnboardingInfo> items = [
     OnboardingInfo(
-      title: "Weather",
-      description: "Track the latest weather conditions for any location in real time.",
-      image: "assets/Weather.png",
+      title: "NoteEase",
+      description: "Capture, sync, and organize your notes in real-time.",
+      image: "assets/onboarding1.png",
     ),
     OnboardingInfo(
-      title: "Sunny",
-      description: "Bright, clear skies and plenty of sunshine — perfect for outdoor adventures.",
-      image: "assets/Sunny day-rafiki.png",
+      title: "MyNotes",
+      description: "Your notes, always synced and accessible, wherever you are.",
+      image: "assets/onboarding2.png",
     ),
     OnboardingInfo(
-      title: "Raining",
-      description: "Raindrops falling from the sky, bringing a cool and refreshing atmosphere.",
-      image: "assets/Raining-rafiki.png",
+      title: "QuickNotes",
+      description: "Effortless note management with real-time syncing and cloud storage",
+      image: "assets/onboarding3.png",
     ),
   ];
 }
@@ -94,9 +93,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     if (isOnboardingCompleted) {
       // Navigate to the login page if onboarding is completed
       Navigator.pushReplacement(
-        // ignore: use_build_context_synchronously
         context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => aryan()),
       );
     }
   }
@@ -146,7 +144,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     controller.items[currentIndex].title,
                     style: const TextStyle(
                       fontSize: 25,
-                      color: Colors.blueAccent,
+                      color: Color(0xFFFFCA28),
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
@@ -179,7 +177,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           margin: const EdgeInsets.symmetric(horizontal: 2),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: currentIndex == index ? Colors.blueAccent : Colors.grey,
+            color: currentIndex == index ? Color(0xFFFFCA28) : Colors.grey,
           ),
           height: 7,
           width: currentIndex == index ? 30 : 7,
@@ -197,7 +195,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       height: 55,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.blueAccent,
+        color: Color(0xFFFFCA28),
       ),
       child: TextButton(
         onPressed: () {
@@ -209,7 +207,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               _setOnboardingCompleted();
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
+                MaterialPageRoute(builder: (context) => aryan()),
               );
             }
           });
