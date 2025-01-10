@@ -53,6 +53,97 @@ class ChatList extends StatelessWidget {
         'time': 'Yesterday',
         'profilePic': 'https://via.placeholder.com/150',
       },
+      {
+        'name': 'John Doe',
+        'message': 'Hey, how\'s it going?',
+        'time': '10:45 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Jane Smith',
+        'message': 'Can you send the files?',
+        'time': '9:30 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Mike Lee',
+        'message': 'Let\'s catch up soon!',
+        'time': 'Yesterday',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'John Doe',
+        'message': 'Hey, how\'s it going?',
+        'time': '10:45 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Jane Smith',
+        'message': 'Can you send the files?',
+        'time': '9:30 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Mike Lee',
+        'message': 'Let\'s catch up soon!',
+        'time': 'Yesterday',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'John Doe',
+        'message': 'Hey, how\'s it going?',
+        'time': '10:45 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Jane Smith',
+        'message': 'Can you send the files?',
+        'time': '9:30 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Mike Lee',
+        'message': 'Let\'s catch up soon!',
+        'time': 'Yesterday',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'John Doe',
+        'message': 'Hey, how\'s it going?',
+        'time': '10:45 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Jane Smith',
+        'message': 'Can you send the files?',
+        'time': '9:30 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Mike Lee',
+        'message': 'Let\'s catch up soon!',
+        'time': 'Yesterday',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'John Doe',
+        'message': 'Hey, how\'s it going?',
+        'time': '10:45 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Jane Smith',
+        'message': 'Can you send the files?',
+        'time': '9:30 AM',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      {
+        'name': 'Mike Lee',
+        'message': 'Let\'s catch up soon!',
+        'time': 'Yesterday',
+        'profilePic': 'https://via.placeholder.com/150',
+      },
+      
     ];
 
     return ListView.builder(
