@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexusapp/Components/Colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -195,7 +196,7 @@ class ChatListItem extends StatelessWidget {
       trailing: Text(
         time,
         style: const TextStyle(
-          color: Colors.grey,
+          color: grey,
           fontSize: 12,
         ),
       ),

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Button.dart';
 import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/Login_screen.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/SignUp_screen.dart';
+import 'package:nexusapp/Screens/Login/Login_screen.dart';
+import 'package:nexusapp/Screens/Sign%20Up/SignUp_screen.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -33,7 +33,6 @@ class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _AuthScreenState createState() => _AuthScreenState();
 }
 
@@ -77,41 +76,48 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       body: SafeArea(
-        child: FadeTransition(
-          opacity: _fadeAnimation,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          padding: const EdgeInsets.all (20),
+          children: [
+            Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SlideTransition(
-                    position: _slideAnimation,
-                    child: const Text(
-                      "Nexus App",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: primaryColor,
+                  const SizedBox(height: 20),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: SlideTransition(
+                      position: _slideAnimation,
+                      child: const Text(
+                        "Nexus App",
+                        style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: primaryColor,
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 10),
-                  SlideTransition(
-                    position: _slideAnimation,
-                    child: const Text(
-                      "Authenticate to access your vital information",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: SlideTransition(
+                      position: _slideAnimation,
+                      child: const Text(
+                        "Authenticate to access your vital information",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: black,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
-                  Expanded(
+                  const SizedBox(height: 70),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
                     child: SlideTransition(
                       position: _slideAnimation,
                       child: Image.asset(
@@ -120,41 +126,46 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
                       ),
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  SlideTransition(
-                    position: _slideAnimation,
-                    child: Button(
-                      label: "Login",
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ),
-                        );
-                      },
+                  const SizedBox(height: 70),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: SlideTransition(
+                      position: _slideAnimation,
+                      child: Button(
+                        label: "Login",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginScreen(),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 15),
-                  SlideTransition(
-                    position: _slideAnimation,
-                    child: Button(
-                      label: "Sign Up",
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignupScreen(),
-                          ),
-                        );
-                      },
+                  const SizedBox(height: 10),
+                  FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: SlideTransition(
+                      position: _slideAnimation,
+                      child: Button(
+                        label: "Sign Up",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignupScreen(),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 20),
                 ],
               ),
             ),
-          ),
+          ],
         ),
       ),
     );

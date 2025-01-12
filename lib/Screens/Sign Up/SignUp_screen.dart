@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Button.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/Login_screen.dart';
+import 'package:nexusapp/Components/Colors.dart';
+import 'package:nexusapp/Screens/Login/Login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -74,13 +75,13 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       body: Center(
         child: SingleChildScrollView(
           child: Form(
             key: formKey,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -92,7 +93,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                         title: Text(
                           "Register New Account",
                           style: TextStyle(
-                            color: Colors.blueAccent,
+                            color: primaryColor,
                             fontSize: 60,
                             fontWeight: FontWeight.bold,
                           ),
@@ -210,7 +211,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                     child: const Text(
                                       'LOGIN',
                                       style: TextStyle(
-                                        color: Colors.blueAccent,
+                                        color: primaryColor,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -245,7 +246,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.blueAccent.withOpacity(.2),
+        color: primaryColor .withOpacity(.2),
       ),
       child: TextFormField(
         controller: controller,

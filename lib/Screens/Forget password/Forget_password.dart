@@ -1,6 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/Login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nexusapp/Components/Button.dart';
+import 'package:nexusapp/Components/Colors.dart';
+import 'package:nexusapp/Screens/Login/Login_screen.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -40,7 +42,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,  // Set background color to white
+      backgroundColor: backgroundColor,  // Set background color to white
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -52,7 +54,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 child: const Text(
                   "Password Recovery",
                   style: TextStyle(
-                    color: Colors.black,  // Change text color to black for contrast
+                    color: black,  // Change text color to black for contrast
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -62,7 +64,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               const Text(
                 "Enter your email to reset password",
                 style: TextStyle(
-                  color: Colors.black87,  // Change text color to black87 for better readability
+                  color: black,  // Change text color to black87 for better readability
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -75,12 +77,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black54, width: 1.5),
+                        border: Border.all(color: black, width: 1.5),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: TextFormField(
                         controller: mailcontroller,
-                        style: const TextStyle(color: Colors.black),
+                        style: const TextStyle(color: black),
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -90,18 +92,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         },
                         decoration: const InputDecoration(
                           hintText: "Email",
-                          hintStyle: TextStyle(fontSize: 18.0, color: Colors.black54),
+                          hintStyle: TextStyle(fontSize: 18.0, color: black),
                           prefixIcon: Icon(
                             Icons.email,
-                            color: Colors.black54,
+                            color: black,
                           ),
                           border: InputBorder.none,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 40.0),
-                    GestureDetector(
-                      onTap: () {
+                    const SizedBox(height: 30.0),
+                    Button(
+                      label: "Send Reset Email",
+                      press: () {
                         if (_formkey.currentState!.validate()) {
                           setState(() {
                             email = mailcontroller.text;
@@ -109,26 +112,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           resetPassword();
                         }
                       },
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                          color: Colors.blueAccent,  // Keep the button color for the "Send Email"
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Send Reset Email",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
                     ),
-                    const SizedBox(height: 50.0),
+                    const SizedBox(height: 40.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -136,7 +121,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           "Don't have an account?",
                           style: TextStyle(
                             fontSize: 18.0,
-                            color: Colors.black87,  // Update color for readability
+                            color: black,  // Update color for readability
                           ),
                         ),
                         const SizedBox(width: 5.0),
@@ -152,7 +137,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           child: const Text(
                             "Create one",
                             style: TextStyle(
-                              color: Colors.blueAccent,
+                              color: primaryColor,
                               fontSize: 20.0,
                               fontWeight: FontWeight.w500,
                             ),

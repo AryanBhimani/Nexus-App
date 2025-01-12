@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexusapp/Components/Colors.dart';
 
 class Button extends StatelessWidget {
   final String label;
@@ -11,7 +12,7 @@ class Button extends StatelessWidget {
     super.key,
     required this.label,
     required this.press,
-    this.color = Colors.blueAccent,
+    this.color = primaryColor,
     this.width = double.infinity,
     this.height = 50.0,
   });
@@ -37,7 +38,7 @@ class Button extends StatelessWidget {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: backgroundColor,
             ),
           ),
         ),

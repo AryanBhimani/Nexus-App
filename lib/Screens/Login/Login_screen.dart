@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Button.dart';
-import 'package:nexusapp/Screens/Forget%20password/Forget%20password.dart';
+import 'package:nexusapp/Components/Colors.dart';
+import 'package:nexusapp/Screens/Forget%20password/Forget_password.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/SignUp_screen.dart';
+import 'package:nexusapp/Screens/Sign%20Up/SignUp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -92,11 +93,11 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(20.0),
             child: FadeTransition(
               opacity: _fadeInAnimation,
               child: SlideTransition(
@@ -108,9 +109,21 @@ class _LoginScreenState extends State<LoginScreen>
                       const Text(
                         "Welcome To Nexus App",
                         style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontSize: 30,
+                          color: primaryColor,
+                          fontSize: 28,
                           fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SlideTransition(
+                        position: _formSlideAnimation,
+                        child: const Text(
+                          "Authenticate to access your vital information",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: black,
+                            fontSize: 15,
+                          ),
                         ),
                       ),
                       Image.asset("assets/Weather.png"),
@@ -147,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen>
                               child: const Text(
                                 'Forget password',
                                 style: TextStyle(
-                                  color: Color(0xff000004),
+                                  color: black,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -183,7 +196,7 @@ class _LoginScreenState extends State<LoginScreen>
                             child: const Text(
                               'SIGN UP',
                               style: TextStyle(
-                                color: Colors.blueAccent,
+                                color: primaryColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -193,7 +206,7 @@ class _LoginScreenState extends State<LoginScreen>
                       if (errorMessage != null)
                         Text(
                           errorMessage!,
-                          style: const TextStyle(color: Colors.red),
+                          style: const TextStyle(color: red),
                         ),
                     ],
                   ),
@@ -217,7 +230,7 @@ class _LoginScreenState extends State<LoginScreen>
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.blueAccent.withOpacity(.2),
+        color: primaryColor . withOpacity(.2),
       ),
       child: TextFormField(
         controller: controller,
@@ -237,7 +250,7 @@ class _LoginScreenState extends State<LoginScreen>
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.blueAccent.withOpacity(.2),
+        color: primaryColor .withOpacity(.2),
       ),
       child: TextFormField(
         controller: controller,
