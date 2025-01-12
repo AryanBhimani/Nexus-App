@@ -169,6 +169,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                   onPressed: () async {
                                     if (formKey.currentState!.validate()) {
                                       try {
+                                        // ignore: unused_local_variable
                                         final credential = await _auth.createUserWithEmailAndPassword(
                                           email: emailname.text,
                                           password: password.text,
