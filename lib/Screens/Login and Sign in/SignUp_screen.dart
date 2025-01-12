@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nexusapp/Components/Button.dart';
 import 'package:nexusapp/Screens/Login%20and%20Sign%20in/Login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  // ignore: library_private_types_in_public_api
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
 class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderStateMixin {
@@ -33,7 +35,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
     // Initialize the animation controller
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 1500),
     );
 
     // Define the slide and opacity animations
@@ -52,7 +54,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
     _controller.forward();
   }
 
-  Future addUserDetails(String emailname, String password) async {
+  Future<void> addUserDetails(String emailname, String password) async {
     await FirebaseFirestore.instance.collection('users').add({
       'email': emailname,
       'password': password,
@@ -108,13 +110,11 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                           position: _slideAnimation,
                           child: Column(
                             children: [
-                              // Username Field
                               _buildInputField(
                                 controller: usernameController,
                                 hintText: "User Name",
                                 icon: Icons.account_circle,
                               ),
-                              // Email Field
                               _buildInputField(
                                 controller: emailname,
                                 hintText: "Email",
@@ -122,7 +122,6 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 validator: (value) =>
                                     value!.isEmpty ? "Email is required" : null,
                               ),
-                              // Password Field
                               _buildInputField(
                                 controller: password,
                                 hintText: "Password",
@@ -136,7 +135,6 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 validator: (value) =>
                                     value!.isEmpty ? "Password is required" : null,
                               ),
-                              // Confirm Password Field
                               _buildInputField(
                                 controller: confirmPassword,
                                 hintText: "Confirm Password",
@@ -157,54 +155,45 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 },
                               ),
                               const SizedBox(height: 20),
-                              // SignUp Button
-                              Container(
-                                height: 55,
-                                width: MediaQuery.of(context).size.width * .9,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  color: Colors.blueAccent,
-                                ),
-                                child: TextButton(
-                                  onPressed: () async {
-                                    if (formKey.currentState!.validate()) {
-                                      try {
-                                        // ignore: unused_local_variable
-                                        final credential = await _auth.createUserWithEmailAndPassword(
-                                          email: emailname.text,
-                                          password: password.text,
-                                        );
-                                        addUserDetails(
-                                          emailname.text.trim(),
-                                          password.text.trim(),
-                                        );
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                          const SnackBar(content: Text('Signup successful')),
-                                        );
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => const LoginScreen()),
-                                        );
-                                      } on FirebaseAuthException catch (e) {
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(
-                                            content: Text('Signup failed: ${e.message}'),
-                                          ),
-                                        );
+                              SlideTransition(
+                                position: _slideAnimation,
+                                child: FadeTransition(
+                                  opacity: _opacityAnimation,
+                                  child: Button(
+                                    label: "Sign Up",
+                                    press: () async {
+                                      if (formKey.currentState!.validate()) {
+                                        try {
+                                          // ignore: unused_local_variable
+                                          final credential = await _auth.createUserWithEmailAndPassword(
+                                            email: emailname.text.trim(),
+                                            password: password.text.trim(),
+                                          );
+                                          addUserDetails(
+                                            emailname.text.trim(),
+                                            password.text.trim(),
+                                          );
+                                          // ignore: use_build_context_synchronously
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(content: Text('Signup successful')),
+                                          );
+                                          Navigator.pushReplacement(
+                                            // ignore: use_build_context_synchronously
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const LoginScreen()),
+                                          );
+                                        } on FirebaseAuthException catch (e) {
+                                          // ignore: use_build_context_synchronously
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(content: Text('Signup failed: ${e.message}')),
+                                          );
+                                        }
                                       }
-                                    }
-                                  },
-                                  child: const Text(
-                                    "Sign Up",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    },
+                                    width: MediaQuery.of(context).size.width * 0.9,
                                   ),
                                 ),
                               ),
-                              // Login Redirect
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nexusapp/Components/Button.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
 import 'package:nexusapp/Screens/Login%20and%20Sign%20in/SignUp_screen.dart';
 
@@ -104,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen>
                   child: Column(
                     children: [
                       const Text(
-                        "Welcome To Jarvis AI",
+                        "Welcome To Nexus App",
                         style: TextStyle(
                           color: Colors.blueAccent,
                           fontSize: 30,
@@ -134,17 +135,8 @@ class _LoginScreenState extends State<LoginScreen>
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             GestureDetector(
-                              // onTap: () {
-                              //   Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) =>
-                              //           const ForgotPassword(),
-                              //     ),
-                              //   );
-                              // },
                               child: const Text(
-                                'Forget password?',
+                                'Forget password',
                                 style: TextStyle(
                                   color: Color(0xff000004),
                                   fontWeight: FontWeight.bold,
@@ -155,35 +147,15 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                       const SizedBox(height: 15),
-                      Container(
-                        height: 55,
-                        width: MediaQuery.of(context).size.width * .9,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: Colors.blueAccent,
-                        ),
-                        child: isLoading
-                            ? const Center(
-                                child: CircularProgressIndicator(
-                                  color: Colors.white,
-                                ),
-                              )
-                            : TextButton(
-                                onPressed: () {
-                                  FocusScope.of(context).unfocus();
-                                  if (formKey.currentState!.validate()) {
-                                    login();
-                                  }
-                                },
-                                child: const Text(
-                                  "Login",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
+                      Button(
+                        label: "Login",
+                        press: () {
+                          FocusScope.of(context).unfocus();
+                          if (formKey.currentState!.validate()) {
+                            login();
+                          }
+                        },
+                        width: MediaQuery.of(context).size.width * 0.9,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -286,4 +258,3 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
 }
-
