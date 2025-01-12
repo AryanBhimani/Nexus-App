@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Nexus',
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: OnboardingPage(),
     );
   }
 }
