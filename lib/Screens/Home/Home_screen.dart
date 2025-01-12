@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
+import 'package:nexusapp/Screens/Home/Message.dart';
+import 'package:nexusapp/Screens/Home/Search.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,22 +10,30 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chats'),
+        backgroundColor: primaryColor,
+        title: const Text('Chats',
+          style: TextStyle(
+            color: backgroundColor,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),
+            icon: const Icon(Icons.search , color: backgroundColor),
             onPressed: () {
-              // Add search functionality
+              Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()),);
             },
           ),
         ],
       ),
       body: const ChatList(),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: primaryColor,
         onPressed: () {
-          // Add functionality to create a new chat
+          Navigator.push(context,MaterialPageRoute(builder: (context) => const Message()),);
         },
-        child: const Icon(Icons.chat),
+        child: const Icon (Icons.graphic_eq_outlined, color: black),
       ),
     );
   }
@@ -71,79 +81,6 @@ class ChatList extends StatelessWidget {
         'time': 'Yesterday',
         'profilePic': 'https://via.placeholder.com/150',
       },
-      {
-        'name': 'John Doe',
-        'message': 'Hey, how\'s it going?',
-        'time': '10:45 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Jane Smith',
-        'message': 'Can you send the files?',
-        'time': '9:30 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Mike Lee',
-        'message': 'Let\'s catch up soon!',
-        'time': 'Yesterday',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'John Doe',
-        'message': 'Hey, how\'s it going?',
-        'time': '10:45 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Jane Smith',
-        'message': 'Can you send the files?',
-        'time': '9:30 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Mike Lee',
-        'message': 'Let\'s catch up soon!',
-        'time': 'Yesterday',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'John Doe',
-        'message': 'Hey, how\'s it going?',
-        'time': '10:45 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Jane Smith',
-        'message': 'Can you send the files?',
-        'time': '9:30 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Mike Lee',
-        'message': 'Let\'s catch up soon!',
-        'time': 'Yesterday',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'John Doe',
-        'message': 'Hey, how\'s it going?',
-        'time': '10:45 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Jane Smith',
-        'message': 'Can you send the files?',
-        'time': '9:30 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Mike Lee',
-        'message': 'Let\'s catch up soon!',
-        'time': 'Yesterday',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      
     ];
 
     return ListView.builder(
@@ -201,7 +138,7 @@ class ChatListItem extends StatelessWidget {
         ),
       ),
       onTap: () {
-        // Navigate to the chat screen
+        Navigator.push(context,MaterialPageRoute(builder: (context) => const Message()),);
       },
     );
   }

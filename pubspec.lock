@@ -208,6 +208,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  google_gemini:
+    dependency: "direct main"
+    description:
+      name: google_gemini
+      sha256: a99e14ba2d497ec8e2b4c83e483204709a4ce3ec6c0a6021b3c4a9b2cd671150
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   google_identity_services_web:
     dependency: transitive
     description:
@@ -388,10 +396,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: "02a7d8a9ef346c9af715811b01fbd8e27845ad2c41148eefd31321471b41863d"
+      sha256: bf808be89fe9dc467475e982c1db6c2faf3d2acf54d526cd5ec37d86c99dbd84
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   shared_preferences_foundation:
     dependency: transitive
     description:
