@@ -16,14 +16,12 @@ class SplashScreen extends StatelessWidget {
       if (user != null) {
         // Navigate to Home if user is logged in
         Navigator.pushReplacement(
-          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
       } else {
         // Navigate to Login if user is not logged in
         Navigator.pushReplacement(
-          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(builder: (context) => const OnboardingPage()),
         );
@@ -80,7 +78,6 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
   final controller = OnboardingData();
-  final pageController = PageController();
   int currentIndex = 0;
 
   @override
@@ -97,7 +94,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     if (isOnboardingCompleted) {
       // Navigate to the login page if onboarding is completed
       Navigator.pushReplacement(
-        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (context) => const MainPage()),
       );
@@ -113,79 +109,76 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          body(),
-          buildDots(),
-          Button(
-            label: currentIndex == controller.items.length - 1
-                ? "Get started"
-                : "Continue",
-            press: () {
-              setState(() {
-                if (currentIndex != controller.items.length - 1) {
-                  currentIndex++;
-                } else {
-                  // Mark onboarding as completed and navigate to login page
-                  _setOnboardingCompleted();
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainPage()),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    currentIndex = value;
+                  });
+                },
+                itemCount: controller.items.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Images
+                        Image.asset(controller.items[currentIndex].image),
+                        const SizedBox(height: 15),
+                        // Titles
+                        Text(
+                          controller.items[currentIndex].title,
+                          style: const TextStyle(
+                            fontSize: 25,
+                            color: primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 10),
+                        // Description
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: Text(
+                            controller.items[currentIndex].description,
+                            style: const TextStyle(color: black, fontSize: 16),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
-                }
-              });
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Body
-  Widget body() {
-    return Expanded(
-      child: Center(
-        child: PageView.builder(
-          onPageChanged: (value) {
-            setState(() {
-              currentIndex = value;
-            });
-          },
-          itemCount: controller.items.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Images
-                  Image.asset(controller.items[currentIndex].image),
-
-                  const SizedBox(height: 15),
-                  // Titles
-                  Text(
-                    controller.items[currentIndex].title,
-                    style: const TextStyle(
-                      fontSize: 25,
-                      color: primaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-
-                  // Description
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Text(
-                      controller.items[currentIndex].description,
-                      style: const TextStyle(color: grey, fontSize: 16),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
+                },
               ),
-            );
-          },
+            ),
+            buildDots(),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Button(
+                label: currentIndex == controller.items.length - 1
+                    ? "Get started"
+                    : "Continue",
+                press: () {
+                  setState(() {
+                    if (currentIndex != controller.items.length - 1) {
+                      currentIndex++;
+                    } else {
+                      // Mark onboarding as completed and navigate to login page
+                      _setOnboardingCompleted();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MainPage()),
+                      );
+                    }
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
