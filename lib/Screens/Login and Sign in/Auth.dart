@@ -48,7 +48,7 @@ class aryan extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                     },
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
