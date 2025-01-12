@@ -98,7 +98,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
-        MaterialPageRoute(builder: (context) => const aryan()),
+        MaterialPageRoute(builder: (context) => const MainPage()),
       );
     }
   }
@@ -211,7 +211,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               _setOnboardingCompleted();
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const aryan()),
+                MaterialPageRoute(builder: (context) => const MainPage()),
               );
             }
           });

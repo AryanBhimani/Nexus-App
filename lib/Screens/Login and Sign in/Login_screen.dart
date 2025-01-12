@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
-import 'package:nexusapp/Screens/Login%20and%20Sign%20in/Sign%20in_screen.dart';
+import 'package:nexusapp/Screens/Login%20and%20Sign%20in/SignUp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      const SignupPage(),
+                                      const SignupScreen(),
                                 ),
                               );
                             },
