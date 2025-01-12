@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Button.dart';
+import 'package:nexusapp/Screens/Forget%20password/Forget%20password.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
 import 'package:nexusapp/Screens/Login%20and%20Sign%20in/SignUp_screen.dart';
 
@@ -135,6 +136,14 @@ class _LoginScreenState extends State<LoginScreen>
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ForgotPassword(),
+                                  ),
+                                );
+                              },
                               child: const Text(
                                 'Forget password',
                                 style: TextStyle(
