@@ -5,6 +5,7 @@ import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Forget%20password/Forget_password.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
 import 'package:nexusapp/Screens/Sign%20Up/SignUp_screen.dart';
+import 'package:nexusapp/service/auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -178,6 +179,36 @@ class _LoginScreenState extends State<LoginScreen>
                           }
                         },
                         width: MediaQuery.of(context).size.width * 0.9,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: (){
+                              AuthMethods().signInWithGoogle(context);
+                            },
+                            child: Image.asset(
+                              "assets/google.png",
+                              height: 45,
+                              width: 45,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 30.0,
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              AuthMethods().signInWithApple();
+                            },
+                            child: Image.asset(
+                              "assets/apple1.png",
+                              height: 50,
+                              width: 50,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
