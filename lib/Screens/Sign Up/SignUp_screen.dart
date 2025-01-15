@@ -219,7 +219,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                       AuthMethods().signInWithApple();
                                     },
                                     child: Image.asset(
-                                      "assets/apple1.png",
+                                      "assets/apple.png",
                                       height: 50,
                                       width: 50,
                                       fit: BoxFit.cover,

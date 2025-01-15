@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen>
                               AuthMethods().signInWithApple();
                             },
                             child: Image.asset(
-                              "assets/apple1.png",
+                              "assets/apple.png",
                               height: 50,
                               width: 50,
                               fit: BoxFit.cover,
