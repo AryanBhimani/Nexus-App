@@ -95,7 +95,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                           "Register New Account",
                           style: TextStyle(
                             color: primaryColor,
-                            fontSize: 60,
+                            fontSize: 50,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -196,6 +196,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                   ),
                                 ),
                               ),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
