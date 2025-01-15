@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Button.dart';
 import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Login/Login_screen.dart';
+import 'package:nexusapp/service/auth.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -194,6 +195,36 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                     width: MediaQuery.of(context).size.width * 0.9,
                                   ),
                                 ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: (){
+                                      AuthMethods().signInWithGoogle(context);
+                                    },
+                                    child: Image.asset(
+                                      "assets/google.png",
+                                      height: 45,
+                                      width: 45,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30.0,
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      AuthMethods().signInWithApple();
+                                    },
+                                    child: Image.asset(
+                                      "assets/apple1.png",
+                                      height: 50,
+                                      width: 50,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
