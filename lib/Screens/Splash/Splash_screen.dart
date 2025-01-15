@@ -54,17 +54,17 @@ class OnboardingData {
     OnboardingInfo(
       title: "Weather",
       description: "Track the latest weather conditions for any location in real time.",
-      image: "assets/Weather.png",
+      image: "assets/Splash/Weather.png",
     ),
     OnboardingInfo(
       title: "Sunny",
       description: "Bright, clear skies and plenty of sunshine — perfect for outdoor adventures.",
-      image: "assets/Sunny day-rafiki.png",
+      image: "assets/Splash/Sunny day-rafiki.png",
     ),
     OnboardingInfo(
       title: "Raining",
       description: "Raindrops falling from the sky, bringing a cool and refreshing atmosphere.",
-      image: "assets/Raining-rafiki.png",
+      image: "assets/Splash/Raining-rafiki.png",
     ),
   ];
 }

@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen>
                           ),
                         ),
                       ),
-                      Image.asset("assets/Weather.png"),
+                      Image.asset("assets/Splash/Weather.png"),
                       const SizedBox(height: 15),
                       _buildTextFormField(
                         controller: emailController,
