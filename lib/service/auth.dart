@@ -6,6 +6,13 @@ import 'package:nexusapp/Screens/Home/Home_screen.dart';
 import 'package:the_apple_sign_in/the_apple_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+class DatabaseMethods{
+  Future addUser(String userId, Map<String, dynamic>  userInfoMap){
+    return FirebaseFirestore.instance.collection("User").doc(userId).set(userInfoMap);
+  }
+}
+
+
 class AuthMethods {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -83,13 +90,5 @@ class AuthMethods {
       default:
         throw UnimplementedError();
     }
-  }
-}
-
-
-
-class DatabaseMethods{
-  Future addUser(String userId, Map<String, dynamic>  userInfoMap){
-    return FirebaseFirestore.instance.collection("User").doc(userId).set(userInfoMap);
   }
 }
