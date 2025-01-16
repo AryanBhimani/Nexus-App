@@ -205,7 +205,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                       AuthMethods().signInWithGoogle(context);
                                     },
                                     child: Image.asset(
-                                      "assets/google.png",
+                                      "assets/Login/google.png",
                                       height: 45,
                                       width: 45,
                                       fit: BoxFit.cover,
@@ -219,7 +219,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                       AuthMethods().signInWithApple();
                                     },
                                     child: Image.asset(
-                                      "assets/apple.png",
+                                      "assets/Login/apple.png",
                                       height: 50,
                                       width: 50,
                                       fit: BoxFit.cover,

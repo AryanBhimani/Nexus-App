@@ -52,19 +52,29 @@ class OnboardingInfo {
 class OnboardingData {
   List<OnboardingInfo> items = [
     OnboardingInfo(
-      title: "Weather",
-      description: "Track the latest weather conditions for any location in real time.",
-      image: "assets/Splash/Weather.png",
+      title: "Nexus Hub",
+      description: "Your central hub for chats, video calls, and group conversations.",
+      image: "assets/Splash/Group Chat-amico.png",
     ),
     OnboardingInfo(
-      title: "Sunny",
-      description: "Bright, clear skies and plenty of sunshine — perfect for outdoor adventures.",
-      image: "assets/Splash/Sunny day-rafiki.png",
+      title: "Nexus Connect",
+      description: "Connect with friends through chat, video, and vibrant group experiences.",
+      image: "assets/Splash/Messaging-amico.png",
     ),
     OnboardingInfo(
-      title: "Raining",
-      description: "Raindrops falling from the sky, bringing a cool and refreshing atmosphere.",
-      image: "assets/Splash/Raining-rafiki.png",
+      title: "Nexus Link",
+      description: "Linking you to seamless conversations, video calls, and meaningful group chats.",
+      image: "assets/Splash/Video call-bro.png",
+    ),
+    OnboardingInfo(
+      title: "Nexus Circle",
+      description: "Enhanced chats, video conversations, and dynamic group connections your all-in-one app.",
+      image: "assets/Splash/Texting-bro.png",
+    ),
+    OnboardingInfo(
+      title: "Nexus Chat+",
+      description: "Talk, see, and share with friends and groups—Nexus makes it easy.",
+      image: "assets/Splash/Texting-amico.png",
     ),
   ];
 }

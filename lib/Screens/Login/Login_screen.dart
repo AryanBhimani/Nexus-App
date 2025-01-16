@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                       ),
 
-                      Image.asset("assets/Splash/Weather.png"),
+                      Image.asset("assets/Login/Authentication-rafiki.png"),
                       const SizedBox(height: 15),
                       _buildTextFormField(
                         controller: emailController,
@@ -177,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen>
                               AuthMethods().signInWithGoogle(context);
                             },
                             child: Image.asset(
-                              "assets/google.png",
+                              "assets/Login/google.png",
                               height: 45,
                               width: 45,
                               fit: BoxFit.cover,
@@ -191,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen>
                               AuthMethods().signInWithApple();
                             },
                             child: Image.asset(
-                              "assets/apple.png",
+                              "assets/Login/apple.png",
                               height: 50,
                               width: 50,
                               fit: BoxFit.cover,

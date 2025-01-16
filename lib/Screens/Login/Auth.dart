@@ -121,7 +121,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
                     child: SlideTransition(
                       position: _slideAnimation,
                       child: Image.asset(
-                        "assets/Splash/Weather.png",
+                        "assets/Splash/Chat-cuate.png",
                         fit: BoxFit.contain,
                       ),
                     ),
