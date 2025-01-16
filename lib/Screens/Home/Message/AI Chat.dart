@@ -107,14 +107,7 @@ class _MessageState extends State<Message> {
         centerTitle: true,
         foregroundColor: backgroundColor,
         backgroundColor: primaryColor,
-        title: const Text(
-          'AI Chat',
-          style: TextStyle(
-            color: backgroundColor,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: const Text('AI Chat'),
       ),
       body: Column(
         children: [

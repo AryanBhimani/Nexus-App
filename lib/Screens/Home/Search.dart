@@ -56,12 +56,6 @@ class _SearchPageState extends State<SearchPage> {
         foregroundColor: backgroundColor,
         backgroundColor: primaryColor,
         title: const Text('Search Page'),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Icon(Icons.search),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

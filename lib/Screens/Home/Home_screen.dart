@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
-import 'package:nexusapp/Screens/Home/Search.dart';
-import 'package:nexusapp/Screens/Login/Login_screen.dart';
+import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,33 +13,28 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
+          foregroundColor: backgroundColor,
           title: const Text(
             'Nexus',
             style: TextStyle(
-              color: backgroundColor,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
           bottom: const TabBar(
+            labelColor: backgroundColor,
             tabs: [
               Tab(
-                icon: Icon(Icons.chat ,color: backgroundColor),
-                child: Text(
-                  "Chats", style: TextStyle(color: backgroundColor),
-                ),
+                icon: Icon(Icons.chat),
+                child: Text("Chats"),
               ),
               Tab(
-                icon: Icon(Icons.account_box_outlined,color: backgroundColor),
-                child: Text(
-                  "Account", style: TextStyle(color: backgroundColor)
-                ),
+                icon: Icon(Icons.account_box_outlined),
+                child: Text("Account"),
               ),
               Tab(
-                icon: Icon(Icons.call,color: backgroundColor),
-                child: Text(
-                  "Call", style: TextStyle(color: backgroundColor),
-                ),
+                icon: Icon(Icons.call),
+                child: Text("Call"),
               ),
             ],
           ),
@@ -48,13 +42,13 @@ class HomePage extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.search, color: backgroundColor),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
               },
             ),
             IconButton(
               icon: const Icon(Icons.settings, color: backgroundColor),
               onPressed: () {
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const LoginScreen()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
               },
             ),
           ],
@@ -67,20 +61,105 @@ class HomePage extends StatelessWidget {
             Center(
               child: Icon(Icons.account_circle),
             ),
-            Center(
-              child: Icon(Icons.call),
-            ),
+            SearchPage(),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: primaryColor,
           onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context) => const Message()),);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Message()));
           },
           child: const Icon(
             Icons.graphic_eq_outlined,
             color: backgroundColor,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SearchPageState createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  final TextEditingController _searchController = TextEditingController();
+  final List<String> _items = [
+    'aryan',
+    'bhimani',
+    'AryanBHimani',
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Date',
+    'Grape',
+    'Kiwi',
+    'Lemon',
+    'Mango',
+    'Peach',
+    'Plum'
+  ];
+  List<String> _filteredItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredItems = _items;
+  }
+
+  void _filterSearchResults(String query) {
+    List<String> filteredList = [];
+    if (query.isNotEmpty) {
+      filteredList = _items
+          .where((item) => item.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    } else {
+      filteredList = _items;
+    }
+    setState(() {
+      _filteredItems = filteredList;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _searchController,
+              onChanged: _filterSearchResults,
+              decoration: const InputDecoration(
+                hintText: 'Search here...',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _filteredItems.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(_filteredItems[index]),
+                    onTap: () {
+                      // You can navigate to a details page or perform other actions
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
