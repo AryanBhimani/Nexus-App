@@ -7,3 +7,4 @@ const backgroundColor = Colors.white;
 const grey = Colors.grey;
 const black = Colors.black;
 const red = Colors.red;
+var white = Colors.grey[200];

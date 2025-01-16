@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_gemini/google_gemini.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nexusapp/Components/Colors.dart';
 
 const apiKey = "AIzaSyDBlZs66H4pr9cMT2NycHKgzPZ7MulT0Ao";
 
@@ -104,11 +105,11 @@ class _MessageState extends State<Message> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: primaryColor,
         title: const Text(
           'AI Chat',
           style: TextStyle(
-            color: Colors.white,
+            color: backgroundColor,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
@@ -131,7 +132,7 @@ class _MessageState extends State<Message> {
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                     decoration: BoxDecoration(
-                      color: isUser ? Colors.blue : Colors.grey[200],
+                      color: isUser ? primaryColor : white,
                       borderRadius: BorderRadius.only(
                         topLeft: const Radius.circular(12),
                         topRight: const Radius.circular(12),
@@ -142,7 +143,7 @@ class _MessageState extends State<Message> {
                     child: Text(
                       message["text"]!,
                       style: TextStyle(
-                        color: isUser ? Colors.white : Colors.black87,
+                        color: isUser ? backgroundColor : black,
                         fontSize: 14,
                       ),
                     ),
@@ -160,7 +161,7 @@ class _MessageState extends State<Message> {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: white,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: TextField(
@@ -177,18 +178,18 @@ class _MessageState extends State<Message> {
                 const SizedBox(width: 8),
                 // Send Button
                 CircleAvatar(
-                  backgroundColor: loading ? Colors.grey : Colors.blue,
+                  backgroundColor: loading ? grey : primaryColor,
                   child: loading
                       ? const SizedBox(
                           width: 18,
                           height: 18,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            color: Colors.white,
+                            color: backgroundColor,
                           ),
                         )
                       : IconButton(
-                          icon: const Icon(Icons.send, color: Colors.white),
+                          icon: const Icon(Icons.send, color: backgroundColor),
                           onPressed: loading
                               ? null
                               : () {
