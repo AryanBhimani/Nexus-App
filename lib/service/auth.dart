@@ -12,7 +12,6 @@ class DatabaseMethods{
   }
 }
 
-
 class AuthMethods {
   final FirebaseAuth auth = FirebaseAuth.instance;
 

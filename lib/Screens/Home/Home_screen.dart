@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: const Text('Chats',
+        title: const Text('Nexus',
           style: TextStyle(
             color: backgroundColor,
             fontSize: 24,
@@ -27,7 +27,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: const ChatList(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: () {
@@ -35,65 +34,6 @@ class HomePage extends StatelessWidget {
         },
         child: const Icon (Icons.graphic_eq_outlined, color: black),
       ),
-    );
-  }
-}
-
-class ChatList extends StatelessWidget {
-  const ChatList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Map<String, String>> chats = [
-      {
-        'name': 'John Doe',
-        'message': 'Hey, how\'s it going?',
-        'time': '10:45 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Jane Smith',
-        'message': 'Can you send the files?',
-        'time': '9:30 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Mike Lee',
-        'message': 'Let\'s catch up soon!',
-        'time': 'Yesterday',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'John Doe',
-        'message': 'Hey, how\'s it going?',
-        'time': '10:45 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Jane Smith',
-        'message': 'Can you send the files?',
-        'time': '9:30 AM',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-      {
-        'name': 'Mike Lee',
-        'message': 'Let\'s catch up soon!',
-        'time': 'Yesterday',
-        'profilePic': 'https://via.placeholder.com/150',
-      },
-    ];
-
-    return ListView.builder(
-      itemCount: chats.length,
-      itemBuilder: (context, index) {
-        final chat = chats[index];
-        return ChatListItem(
-          name: chat['name']!,
-          message: chat['message']!,
-          time: chat['time']!,
-          profilePic: chat['profilePic']!,
-        );
-      },
     );
   }
 }
