@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Button.dart';
 import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Login/Login_screen.dart';
-import 'package:nexusapp/service/auth.dart';
+import 'package:nexusapp/service/Auth.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

@@ -5,7 +5,7 @@ import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Forget%20password/Forget_password.dart';
 import 'package:nexusapp/Screens/Home/Home_screen.dart';
 import 'package:nexusapp/Screens/Sign%20Up/SignUp_screen.dart';
-import 'package:nexusapp/service/auth.dart';
+import 'package:nexusapp/service/Auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
