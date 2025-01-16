@@ -108,25 +108,14 @@ class _LoginScreenState extends State<LoginScreen>
                   child: Column(
                     children: [
                       const Text(
-                        "Welcome To Nexus App",
+                        "Login",
                         style: TextStyle(
                           color: primaryColor,
-                          fontSize: 28,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      SlideTransition(
-                        position: _formSlideAnimation,
-                        child: const Text(
-                          "Authenticate to access your vital information",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: black,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ),
+
                       Image.asset("assets/Splash/Weather.png"),
                       const SizedBox(height: 15),
                       _buildTextFormField(
@@ -169,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen>
                           ],
                         ),
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       Button(
                         label: "Login",
                         press: () {

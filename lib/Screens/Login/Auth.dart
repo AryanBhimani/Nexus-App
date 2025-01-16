@@ -85,7 +85,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 15),
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: SlideTransition(

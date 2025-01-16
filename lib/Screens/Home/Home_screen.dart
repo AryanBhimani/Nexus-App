@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
-import 'package:nexusapp/Screens/Home/Message.dart';
+import 'package:nexusapp/Screens/Home/Message/Message.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 
 class HomePage extends StatelessWidget {

@@ -37,7 +37,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
     // Initialize the animation controller
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 700),
     );
 
     // Define the slide and opacity animations
