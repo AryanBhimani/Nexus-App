@@ -103,8 +103,9 @@ class _MessageState extends State<Message> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar( 
         centerTitle: true,
+        foregroundColor: backgroundColor,
         backgroundColor: primaryColor,
         title: const Text(
           'AI Chat',
