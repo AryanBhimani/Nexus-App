@@ -76,10 +76,7 @@ class _LoginScreenState extends State<LoginScreen>
         password: passwordController.text.trim(),
       );
       if (!mounted) return;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()),);
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;
