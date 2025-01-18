@@ -80,9 +80,6 @@ class HomePage extends StatelessWidget {
 }
 
 
-
-
-
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
