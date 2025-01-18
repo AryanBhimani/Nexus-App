@@ -1,7 +1,90 @@
+// import 'package:flutter/material.dart';
+// import 'package:nexusapp/Components/Colors.dart';
+// import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
+// import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
+//
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return DefaultTabController(
+//       length: 3,
+//       child: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: primaryColor,
+//           foregroundColor: backgroundColor,
+//           title: const Text(
+//             'Nexus',
+//             style: TextStyle(
+//               fontSize: 24,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//           bottom: const TabBar(
+//             labelColor: backgroundColor,
+//             tabs: [
+//               Tab(
+//                 icon: Icon(Icons.chat),
+//                 child: Text("Chats"),
+//               ),
+//               Tab(
+//                 icon: Icon(Icons.account_box_outlined),
+//                 child: Text("Account"),
+//               ),
+//               Tab(
+//                 icon: Icon(Icons.call),
+//                 child: Text("Call"),
+//               ),
+//             ],
+//           ),
+//           actions: [
+//             IconButton(
+//               icon: const Icon(Icons.search, color: backgroundColor),
+//               onPressed: () {
+//                 Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+//               },
+//             ),
+//             IconButton(
+//               icon: const Icon(Icons.settings, color: backgroundColor),
+//               onPressed: () {
+//                 Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
+//               },
+//             ),
+//           ],
+//         ),
+//         body: const TabBarView(
+//           children: [
+//             Center(
+//               child: Icon(Icons.home),
+//             ),
+//             Center(
+//               child: Icon(Icons.account_circle),
+//             ),
+//             SearchPage(),
+//           ],
+//         ),
+//         floatingActionButton: FloatingActionButton(
+//           backgroundColor: primaryColor,
+//           onPressed: () {
+//             Navigator.push(context, MaterialPageRoute(builder: (context) => const Message()));
+//           },
+//           child: const Icon(
+//             Icons.graphic_eq_outlined,
+//             color: backgroundColor,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
-import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
-import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
+import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';// Assuming SearchPage.dart
+import 'package:nexusapp/Screens/Home/Settings/Settings.dart'; // Assuming Settings.dart
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,51 +106,49 @@ class HomePage extends StatelessWidget {
           ),
           bottom: const TabBar(
             labelColor: backgroundColor,
+            indicatorColor: Colors.white,
             tabs: [
-              Tab(
-                icon: Icon(Icons.chat),
-                child: Text("Chats"),
-              ),
-              Tab(
-                icon: Icon(Icons.account_box_outlined),
-                child: Text("Account"),
-              ),
-              Tab(
-                icon: Icon(Icons.call),
-                child: Text("Call"),
-              ),
+              Tab(icon: Icon(Icons.chat), text: "Chats"),
+              Tab(icon: Icon(Icons.account_box_outlined), text: "Account"),
+              Tab(icon: Icon(Icons.call), text: "Call"),
             ],
           ),
           actions: [
             IconButton(
               icon: const Icon(Icons.search, color: backgroundColor),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchPage()),
+                );
               },
             ),
             IconButton(
               icon: const Icon(Icons.settings, color: backgroundColor),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Settings()),
+                );
               },
             ),
           ],
         ),
         body: const TabBarView(
           children: [
-            Center(
-              child: Icon(Icons.home),
-            ),
-            Center(
-              child: Icon(Icons.account_circle),
-            ),
-            SearchPage(),
+            // Replace with actual screen widgets
+            Center(child: Text("Chat Screen")),
+            Center(child: Text("Account Screen")),
+            Center(child: Text("Call Screen")),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: primaryColor,
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const Message()));
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Message()),
+            );
           },
           child: const Icon(
             Icons.graphic_eq_outlined,

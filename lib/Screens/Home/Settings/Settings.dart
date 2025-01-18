@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
+import 'package:nexusapp/Screens/Home/Settings/About.dart';
+import 'package:nexusapp/Screens/Home/Settings/Privacy.dart';
 import 'package:nexusapp/Screens/Home/Settings/Profile.dart';
 import 'package:nexusapp/Screens/Login/Login_screen.dart';
 
@@ -44,8 +46,7 @@ class _SettingsState extends State<Settings> {
             subtitle: Text('Adjust privacy options'),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              // Handle navigation or action for privacy settings
-              print('Privacy settings tapped');
+              Navigator.push(context,MaterialPageRoute(builder: (context) =>  PrivacyPage()),);
             },
           ),
           Divider(),
@@ -85,8 +86,7 @@ class _SettingsState extends State<Settings> {
             subtitle: Text('Learn more about this app'),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              // Handle navigation or action for about section
-              print('About tapped');
+              Navigator.push(context,MaterialPageRoute(builder: (context) =>  AboutPage()),);
             },
           ),
           Divider(),
