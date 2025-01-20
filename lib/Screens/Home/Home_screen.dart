@@ -440,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                   "Aryan Bhimani",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text("AryanBhimani@gmail.com"),
+                accountEmail: Text("Aryan@gmail.com"),
                 currentAccountPictureSize: Size.square(45),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Color.fromARGB(255, 0, 255, 234),
