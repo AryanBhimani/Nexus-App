@@ -386,9 +386,9 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    Center(child: Text("Chat Screen")), // Replace with actual Chat screen widget
-    Center(child: Text("Account Screen")), // Replace with actual Account screen widget
-    Center(child: Text("Call Screen")), // Replace with actual Call screen widget
+    Center(child: Text("Chat Screen")), 
+    Center(child: Text("Account Screen")),
+    Center(child: Text("Call Screen")), 
   ];
 
   @override
