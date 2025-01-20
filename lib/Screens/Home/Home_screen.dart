@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _screens = [
     Center(child: Text("Chat Screen")), 
     Center(child: Text("Account Screen")),
-    Center(child: Text("Call Screen")), 
+    SearchPage(),
   ];
 
   @override
