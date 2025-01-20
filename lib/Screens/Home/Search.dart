@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nexusapp/Components/Colors.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -51,12 +50,6 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        foregroundColor: backgroundColor,
-        backgroundColor: primaryColor,
-        title: const Text('Search Page'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -88,4 +81,4 @@ class _SearchPageState extends State<SearchPage> {
       ),
     );
   }
-}
+}  
