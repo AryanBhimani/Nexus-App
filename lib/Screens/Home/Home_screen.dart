@@ -408,19 +408,13 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.search, color: backgroundColor),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SearchPage()),
-              );
+              Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()),);
             },
           ),
           IconButton(
             icon: const Icon(Icons.settings, color: backgroundColor),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Settings()),
-              );
+              Navigator.push(context,MaterialPageRoute(builder: (context) => const Settings()),);
             },
           ),
         ],
