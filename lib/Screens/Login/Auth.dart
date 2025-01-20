@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasData) {
-            return const HomePage();
+            return  HomePage();
           } else {
             return const AuthScreen();
           }
