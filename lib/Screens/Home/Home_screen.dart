@@ -88,9 +88,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
-import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart'; // Assuming Message.dart
+import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
-import 'package:nexusapp/Screens/Login/Login_screen.dart'; // Assuming Settings.dart
+import 'package:nexusapp/Screens/Login/Login_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
