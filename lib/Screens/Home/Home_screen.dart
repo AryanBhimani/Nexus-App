@@ -425,7 +425,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-        drawer: Drawer(
+      body: _screens[_currentIndex],
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -487,7 +488,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: _screens[_currentIndex],
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: () {
