@@ -78,24 +78,21 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.text_snippet),
               title: const Text('Text Only'),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/TextOnly');
+                
               },
             ),
             ListTile(
               leading: const Icon(Icons.image),
               title: const Text('Text with Image'),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/TextWithImage');
+
               },
             ),
             ListTile(
               leading: const Icon(Icons.assistant),
               title: const Text('Assistant'),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/Assistant');
+
               },
             ),
             ListTile(
