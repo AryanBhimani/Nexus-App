@@ -102,10 +102,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.logout),
               title: const Text('LogOut'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginScreen()),);
               },
             ),
           ],
@@ -114,10 +111,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Message()),
-          );
+          Navigator.push(context,MaterialPageRoute(builder: (context) => const Message()),);
         },
         child: const Icon(
           Icons.graphic_eq_outlined,
