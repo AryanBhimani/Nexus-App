@@ -432,10 +432,10 @@ class _HomePageState extends State<HomePage> {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: primaryColor,
               ),
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
+                decoration: BoxDecoration(color: primaryColor),
                 accountName: Text(
                   "Aryan Bhimani",
                   style: TextStyle(fontSize: 18),
@@ -446,7 +446,7 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Color.fromARGB(255, 0, 255, 234),
                   child: Text(
                     "A",
-                    style: TextStyle(fontSize: 30.0, color: Colors.blue),
+                    style: TextStyle(fontSize: 30.0, color: primaryColor),
                   ),
                 ),
               ),
