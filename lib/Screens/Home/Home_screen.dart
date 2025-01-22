@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
+import 'package:nexusapp/Screens/Home/Calls/Calls.dart';
 import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _screens = [
     Center(child: Text("Chat Screen")), 
     Center(child: Text("Account Screen")),
-    SearchPage(),
+    CallsPage(),
   ];
 
   @override

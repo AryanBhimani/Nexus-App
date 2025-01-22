@@ -17,6 +17,6 @@ class MyApp extends StatelessWidget {
       title: 'Nexus',
       debugShowCheckedModeBanner: false,
       home: OnboardingPage(),
-    );
+    ); 
   }
 }
