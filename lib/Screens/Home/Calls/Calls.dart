@@ -14,10 +14,6 @@ class CallsPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Calls'),
-      //   centerTitle: true,
-      // ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemCount: calls.length,
