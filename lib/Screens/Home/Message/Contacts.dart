@@ -1,84 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:nexusapp/Screens/Home/Message/chat.dart';
 
-class CommunityPage extends StatelessWidget {
-  const CommunityPage({super.key});
+class ChatsPage extends StatelessWidget {
+  const ChatsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> communities = [
+    // Example data for chats
+    final List<Map<String, String>> chats = [
       {
-        'name': 'Flutter Developers',
-        'description': 'A community for Flutter enthusiasts to share and learn.'
+        "name": "Alice Johnson",
+        "lastMessage": "Hey! How are you?",
+        "time": "10:30 AM",
+        "avatar": "assets/avatars/alice.png",
       },
       {
-        'name': 'Tech Innovators',
-        'description': 'Discussing the latest trends in technology and innovation.'
+        "name": "Bob Smith",
+        "lastMessage": "Let's catch up later.",
+        "time": "9:15 AM",
+        "avatar": "assets/avatars/bob.png",
       },
       {
-        'name': 'Open Source Coders',
-        'description': 'Collaborate on open-source projects and contribute to the community.'
-      },
-      {
-        'name': 'AI Enthusiasts',
-        'description': 'Exploring advancements and projects in artificial intelligence.'
-      },
-      {
-        'name': 'Mobile App Creators',
-        'description': 'Building mobile apps with best practices and tools.'
+        "name": "Charlie Brown",
+        "lastMessage": "Great, see you then!",
+        "time": "Yesterday",
+        "avatar": "assets/avatars/charlie.png",
       },
     ];
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Community'),
-      //   centerTitle: true,
-      // ),
+      appBar: AppBar(
+        title: const Text('Chats'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Add search functionality here
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {
+              // Add more options menu here
+            },
+          ),
+        ],
+      ),
       body: ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemCount: communities.length,
+        padding: const EdgeInsets.all(8.0),
+        itemCount: chats.length,
         itemBuilder: (context, index) {
-          return Card(
-            elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-            ),
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Colors.purple,
-                child: Text(
-                  communities[index]['name']![0],
-                  style: const TextStyle(color: Colors.white),
-                ),
+          final chat = chats[index];
+          return InkWell(
+            onTap: () {
+              // Navigate to chat details or message page
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(12),
               ),
-              title: Text(
-                communities[index]['name']!,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                communities[index]['description']!,
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
-              ),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => const ChatPage()),);
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage: AssetImage(chat["avatar"]!),
                   ),
-                ),
-                child: const Text('Join'),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          chat["name"]!,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          chat["lastMessage"]!,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey[700],
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    chat["time"]!,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
               ),
-              onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const ChatPage()),);
-              },
             ),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add functionality to start a new chat
+        },
+        child: const Icon(Icons.chat),
       ),
     );
   }

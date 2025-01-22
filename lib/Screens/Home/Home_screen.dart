@@ -6,7 +6,7 @@ import 'package:nexusapp/Screens/Home/Message/Contacts.dart';
 import 'package:nexusapp/Screens/Home/Settings/Account.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
-import 'package:nexusapp/Screens/Login/Login_screen.dart';
+// import 'package:nexusapp/Screens/Login/Login_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    CommunityPage(),
+    ChatsPage(),
     AccountPage(),
     CallsPage(),
   ];
@@ -53,62 +53,62 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: _screens[_currentIndex],
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: primaryColor,
-              ),
-              child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: primaryColor),
-                accountName: Text(
-                  "Aryan Bhimani",
-                  style: TextStyle(fontSize: 18),
-                ),
-                accountEmail: Text("Aryan@gmail.com"),
-                currentAccountPictureSize: Size.square(45),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: Color.fromARGB(255, 0, 255, 234),
-                  child: Text(
-                    "A",
-                    style: TextStyle(fontSize: 30.0, color: primaryColor),
-                  ),
-                ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.text_snippet),
-              title: const Text('Text Only'),
-              onTap: () {
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: [
+      //       const DrawerHeader(
+      //         decoration: BoxDecoration(
+      //           color: primaryColor,
+      //         ),
+      //         child: UserAccountsDrawerHeader(
+      //           decoration: BoxDecoration(color: primaryColor),
+      //           accountName: Text(
+      //             "Aryan Bhimani",
+      //             style: TextStyle(fontSize: 18),
+      //           ),
+      //           accountEmail: Text("Aryan@gmail.com"),
+      //           currentAccountPictureSize: Size.square(45),
+      //           currentAccountPicture: CircleAvatar(
+      //             backgroundColor: Color.fromARGB(255, 0, 255, 234),
+      //             child: Text(
+      //               "A",
+      //               style: TextStyle(fontSize: 30.0, color: primaryColor),
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.text_snippet),
+      //         title: const Text('Text Only'),
+      //         onTap: () {
                 
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.image),
-              title: const Text('Text with Image'),
-              onTap: () {
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.image),
+      //         title: const Text('Text with Image'),
+      //         onTap: () {
 
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.assistant),
-              title: const Text('Assistant'),
-              onTap: () {
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.assistant),
+      //         title: const Text('Assistant'),
+      //         onTap: () {
 
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('LogOut'),
-              onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginScreen()),);
-              },
-            ),
-          ],
-        ),
-      ),
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.logout),
+      //         title: const Text('LogOut'),
+      //         onTap: () {
+      //           Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginScreen()),);
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: () {

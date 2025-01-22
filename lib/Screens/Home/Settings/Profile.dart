@@ -105,6 +105,8 @@ class profile extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Profile'),
         centerTitle: true,
+        foregroundColor: backgroundColor,
+        backgroundColor: primaryColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
