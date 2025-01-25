@@ -4,7 +4,7 @@ import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Home/Calls/Calls.dart';
 import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
 import 'package:nexusapp/Screens/Home/Message/Contacts.dart';
-// import 'package:nexusapp/Screens/Home/Settings/Account.dart';
+import 'package:nexusapp/Screens/Home/Settings/Account.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
 import 'package:nexusapp/Screens/Login/Login_screen.dart';
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _screens = [
     ChatsPage(),
-    // AccountPage(),
+    AccountPage(),
     CallsPage(),
   ];
 
@@ -43,13 +43,13 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.search, color: backgroundColor),
             onPressed: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()),);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
             },
           ),
           IconButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert, color: backgroundColor),
             onPressed: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context) => const Settings()),);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Settings()));
             },
           ),
         ],
@@ -65,14 +65,14 @@ class _HomePageState extends State<HomePage> {
               ),
               child: UserAccountsDrawerHeader(
                 decoration: const BoxDecoration(color: primaryColor),
-                accountName: const Text(
-                  "Aryan Bhimani",
-                  style: TextStyle(fontSize: 18),
+                accountName: Text(
+                  user?.displayName ?? 'No name available',
+                  style: const TextStyle(fontSize: 18, color: backgroundColor),
                 ),
                 accountEmail: Text(
-                    user!.email ?? 'Email not available',
-                    style: const TextStyle(fontSize: 16, color: backgroundColor),
-                  ),
+                  user!.email ?? 'Email not available',
+                  style: const TextStyle(fontSize: 16, color: backgroundColor),
+                ),
                 currentAccountPictureSize: const Size.square(45),
                 currentAccountPicture: const CircleAvatar(
                   backgroundColor: Color.fromARGB(255, 0, 255, 234),
@@ -84,31 +84,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.text_snippet),
-              title: const Text('Text Only'),
-              onTap: () {
-                
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.image),
-              title: const Text('Text with Image'),
-              onTap: () {
-
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.assistant),
-              title: const Text('Assistant'),
-              onTap: () {
-
-              },
-            ),
-            ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('LogOut'),
               onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginScreen()),);
+                FirebaseAuth.instance.signOut().then((_) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                });
               },
             ),
           ],
@@ -117,7 +98,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: () {
-          Navigator.push(context,MaterialPageRoute(builder: (context) => const Message()),);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const Message()));
         },
         child: const Icon(
           Icons.graphic_eq_outlined,

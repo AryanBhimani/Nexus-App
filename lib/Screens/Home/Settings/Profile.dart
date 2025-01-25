@@ -44,8 +44,8 @@ class profile extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    // user.displayName ?? 'User Name',
-                    'Aryan Bhimani',
+                    user.displayName ?? 'User Name',
+                    // 'Aryan Bhimani',
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
