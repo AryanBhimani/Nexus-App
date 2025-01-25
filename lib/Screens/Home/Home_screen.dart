@@ -7,7 +7,6 @@ import 'package:nexusapp/Screens/Home/Message/Contacts.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
 import 'package:nexusapp/Screens/Home/new/new.dart';
-// import 'package:nexusapp/Screens/Login/Login_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -56,46 +55,6 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: _screens[_currentIndex],
-      // drawer: Drawer(
-      //   child: ListView(
-      //     padding: EdgeInsets.zero,
-      //     children: [
-      //       DrawerHeader(
-      //         decoration: const BoxDecoration(
-      //           color: primaryColor,
-      //         ),
-      //         child: UserAccountsDrawerHeader(
-      //           decoration: const BoxDecoration(color: primaryColor),
-      //           accountName: Text(
-      //             users?.displayName ?? 'No name available',
-      //             style: const TextStyle(fontSize: 18, color: backgroundColor),
-      //           ),
-      //           accountEmail: Text(
-      //             user!.email ?? 'Email not available',
-      //             style: const TextStyle(fontSize: 16, color: backgroundColor),
-      //           ),
-      //           currentAccountPictureSize: const Size.square(45),
-      //           currentAccountPicture: const CircleAvatar(
-      //             backgroundColor: Color.fromARGB(255, 0, 255, 234),
-      //             child: Text(
-      //               "A",
-      //               style: TextStyle(fontSize: 30.0, color: primaryColor),
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //       ListTile(
-      //         leading: const Icon(Icons.logout),
-      //         title: const Text('LogOut'),
-      //         onTap: () {
-      //           FirebaseAuth.instance.signOut().then((_) {
-      //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-      //           });
-      //         },
-      //       ),
-      //     ],
-      //   ),
-      // ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: () {
