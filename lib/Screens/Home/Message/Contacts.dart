@@ -11,41 +11,23 @@ class ChatsPage extends StatelessWidget {
         "name": "Alice Johnson",
         "lastMessage": "Hey! How are you?",
         "time": "10:30 AM",
-        "avatar": "assets/avatars/alice.png",
+        "avatar": "assets/App Data/caht.png",
       },
       {
         "name": "Bob Smith",
         "lastMessage": "Let's catch up later.",
         "time": "9:15 AM",
-        "avatar": "assets/avatars/bob.png",
+        "avatar": "assets/App Data/caht.png",
       },
       {
         "name": "Charlie Brown",
         "lastMessage": "Great, see you then!",
         "time": "Yesterday",
-        "avatar": "assets/avatars/charlie.png",
+        "avatar": "assets/App Data/caht.png",
       },
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Chats'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // Add search functionality here
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {
-              // Add more options menu here
-            },
-          ),
-        ],
-      ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
         itemCount: chats.length,
@@ -105,12 +87,6 @@ class ChatsPage extends StatelessWidget {
             ),
           );
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add functionality to start a new chat
-        },
-        child: const Icon(Icons.chat),
       ),
     );
   }

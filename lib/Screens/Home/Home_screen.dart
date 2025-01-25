@@ -44,8 +44,14 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()),);
             },
           ),
+          // IconButton(
+          //   icon: const Icon(Icons.settings, color: backgroundColor),
+          //   onPressed: () {
+          //     Navigator.push(context,MaterialPageRoute(builder: (context) => const Settings()),);
+          //   },
+          // ),
           IconButton(
-            icon: const Icon(Icons.settings, color: backgroundColor),
+            icon: const Icon(Icons.more_vert),
             onPressed: () {
               Navigator.push(context,MaterialPageRoute(builder: (context) => const Settings()),);
             },
