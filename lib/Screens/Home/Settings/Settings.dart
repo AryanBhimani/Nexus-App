@@ -36,7 +36,7 @@ class _SettingsState extends State<Settings> {
             subtitle: Text('Manage your account settings'),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context) =>  profile()),);
+              Navigator.push(context,MaterialPageRoute(builder: (context) =>  Profile()),);
             },
           ),
           Divider(),
