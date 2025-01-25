@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
 import 'package:nexusapp/Screens/Home/Calls/Calls.dart';
 import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
 import 'package:nexusapp/Screens/Home/Message/Contacts.dart';
-import 'package:nexusapp/Screens/Home/Settings/Account.dart';
+// import 'package:nexusapp/Screens/Home/Settings/Account.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
 import 'package:nexusapp/Screens/Login/Login_screen.dart';
@@ -17,10 +18,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  final User? user = FirebaseAuth.instance.currentUser;
 
   final List<Widget> _screens = [
     ChatsPage(),
-    AccountPage(),
+    // AccountPage(),
     CallsPage(),
   ];
 
@@ -44,12 +46,6 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()),);
             },
           ),
-          // IconButton(
-          //   icon: const Icon(Icons.settings, color: backgroundColor),
-          //   onPressed: () {
-          //     Navigator.push(context,MaterialPageRoute(builder: (context) => const Settings()),);
-          //   },
-          // ),
           IconButton(
             icon: const Icon(Icons.more_vert),
             onPressed: () {
@@ -63,19 +59,22 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 color: primaryColor,
               ),
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: primaryColor),
-                accountName: Text(
+                decoration: const BoxDecoration(color: primaryColor),
+                accountName: const Text(
                   "Aryan Bhimani",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text("Aryan@gmail.com"),
-                currentAccountPictureSize: Size.square(45),
-                currentAccountPicture: CircleAvatar(
+                accountEmail: Text(
+                    user!.email ?? 'Email not available',
+                    style: const TextStyle(fontSize: 16, color: backgroundColor),
+                  ),
+                currentAccountPictureSize: const Size.square(45),
+                currentAccountPicture: const CircleAvatar(
                   backgroundColor: Color.fromARGB(255, 0, 255, 234),
                   child: Text(
                     "A",
@@ -134,7 +133,7 @@ class _HomePageState extends State<HomePage> {
         },
         backgroundColor: primaryColor,
         selectedItemColor: backgroundColor,
-        unselectedItemColor: black,
+        unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),

@@ -10,7 +10,6 @@ class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SignupScreenState createState() => _SignupScreenState();
 }
 
@@ -34,16 +33,14 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
 
-    // Initialize the animation controller
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 700),
     );
 
-    // Define the slide and opacity animations
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.5), // Start slightly below
-      end: Offset.zero, // End at the original position
+      begin: const Offset(0.0, 0.5),
+      end: Offset.zero,
     ).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
@@ -52,13 +49,13 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
 
-    // Start the animation
     _controller.forward();
   }
 
-  Future<void> addUserDetails(String emailname, String password) async {
+  Future<void> addUserDetails(String username, String email, String password) async {
     await FirebaseFirestore.instance.collection('users').add({
-      'email': emailname,
+      'username': username,
+      'email': email,
       'password': password,
     });
   }
@@ -69,7 +66,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
     password.dispose();
     confirmPassword.dispose();
     usernameController.dispose();
-    _controller.dispose(); // Dispose the animation controller
+    _controller.dispose();
     super.dispose();
   }
 
@@ -116,6 +113,8 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 controller: usernameController,
                                 hintText: "User Name",
                                 icon: Icons.account_circle,
+                                validator: (value) =>
+                                    value!.isEmpty ? "Username is required" : null,
                               ),
                               _buildInputField(
                                 controller: emailname,
@@ -171,21 +170,23 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                             email: emailname.text.trim(),
                                             password: password.text.trim(),
                                           );
+
+                                          // Add user details to Firestore
                                           addUserDetails(
+                                            usernameController.text.trim(),
                                             emailname.text.trim(),
                                             password.text.trim(),
                                           );
-                                          // ignore: use_build_context_synchronously
+
                                           ScaffoldMessenger.of(context).showSnackBar(
                                             const SnackBar(content: Text('Signup successful')),
                                           );
+
                                           Navigator.pushReplacement(
-                                            // ignore: use_build_context_synchronously
                                             context,
                                             MaterialPageRoute(builder: (context) => const LoginScreen()),
                                           );
                                         } on FirebaseAuthException catch (e) {
-                                          // ignore: use_build_context_synchronously
                                           ScaffoldMessenger.of(context).showSnackBar(
                                             SnackBar(content: Text('Signup failed: ${e.message}')),
                                           );
@@ -211,9 +212,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    width: 30.0,
-                                  ),
+                                  const SizedBox(width: 30.0),
                                   GestureDetector(
                                     onTap: (){
                                       AuthMethods().signInWithApple();
@@ -278,7 +277,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: primaryColor .withOpacity(.2),
+        color: primaryColor.withOpacity(.2),
       ),
       child: TextFormField(
         controller: controller,
