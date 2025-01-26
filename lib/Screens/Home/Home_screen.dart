@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexusapp/Components/Colors.dart';
-import 'package:nexusapp/Screens/Home/new/Calls.dart';
+import 'package:nexusapp/Screens/Home/Footer/Calls.dart';
+import 'package:nexusapp/Screens/Home/Footer/new.dart';
 import 'package:nexusapp/Screens/Home/Message/AI%20Chat.dart';
 import 'package:nexusapp/Screens/Home/Message/Contacts.dart';
 import 'package:nexusapp/Screens/Home/Search.dart';
 import 'package:nexusapp/Screens/Home/Settings/Settings.dart';
-import 'package:nexusapp/Screens/Home/new/new.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
